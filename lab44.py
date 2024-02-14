@@ -4,15 +4,13 @@ def parse_input(user_input):
     return cmd, *args
 
 def all_contact(args, contacts):
-    for name in contacts:
-        print(name, " - ", contacts[name])
-    return "All contacts"
+    listall = [f"Name: {name} - Tel : {contacts[name]}" for name in contacts]
+    return "\n".join(listall)
     
 def phone_contact(args, contacts):
     name = args[0]
-    print(name, " - ", contacts[name])
-    return "Phone"
-
+    return f"Name: {name} - Tel : {contacts[name]}"
+ 
 def change_contact(args, contacts):
     name, phone = args
     contacts[name] = phone
@@ -21,7 +19,6 @@ def change_contact(args, contacts):
 def add_contact(args, contacts):
     name, phone = args
     contacts[name] = phone
-    print(contacts)
     return "Contact added."
 
 def main():
